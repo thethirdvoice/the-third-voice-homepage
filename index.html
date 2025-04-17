@@ -1,29 +1,118 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Third Voice</title>
   <style>
-    body { font-family: sans-serif; background: #fff; color: #222; text-align: center; padding: 50px; }
-    .logo { max-width: 120px; margin-bottom: 20px; }
-    .btn { padding: 10px 20px; background: black; color: white; border: none; border-radius: 12px; cursor: pointer; margin-top: 20px; }
-    .email-form { margin-top: 20px; }
-    input[type="email"] { padding: 10px; border-radius: 8px; border: 1px solid #ccc; width: 250px; }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fdfbf7;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    header {
+      padding: 2em 1em 1em;
+    }
+    .logo {
+      max-width: 100px;
+      margin-bottom: 1em;
+    }
+    h1 {
+      font-size: 2.2em;
+      margin: 0.3em 0;
+    }
+    .subheading {
+      font-style: italic;
+      color: #666;
+      margin-bottom: 2em;
+    }
+    .mission {
+      font-size: 1.2em;
+      margin: 1em auto;
+      max-width: 600px;
+    }
+    .slideshow {
+      font-size: 1.1em;
+      font-weight: bold;
+      margin: 2em auto;
+      max-width: 700px;
+      height: 3em;
+      line-height: 1.5em;
+      transition: opacity 0.5s ease;
+    }
+    .email-form {
+      margin-top: 2em;
+    }
+    input[type="email"] {
+      padding: 0.6em;
+      width: 250px;
+      font-size: 1em;
+    }
+    .btn {
+      padding: 0.6em 1.2em;
+      background-color: #333;
+      color: white;
+      font-size: 1em;
+      border: none;
+      cursor: pointer;
+    }
+    .launch {
+      margin-top: 3em;
+      color: #555;
+      font-size: 0.95em;
+    }
+    footer {
+      margin-top: 3em;
+      font-size: 0.9em;
+      color: #888;
+    }
   </style>
 </head>
 <body>
-  <img src="sparrow-logo.png" alt="The Third Voice Logo" class="logo" />
-  <h1>The Third Voice is Rising</h1>
-  <p><em>A peaceful movement of presence, not parties.</em></p>
-  <p>We don’t vote red or blue—we vote human. The Third Voice awakens the 88 million silent citizens who didn’t vote.</p>
-  <p>We are not the wings of the bird—we are the body. And we are ready to rise.</p>
+  <header>
+    <img src="logo.png" alt="The Third Voice Sparrow Logo" class="logo" />
+    <h1>The Third Voice is Rising</h1>
+    <div class="subheading">A peaceful movement of presence—not parties.</div>
+  </header> <div class="mission">
+    We don’t vote red or blue. We vote human.<br />
+    The Third Voice is the silent majority—<br />
+    The body of the bird, not the wings.<br />
+    We were never meant to choose sides. We were meant to <strong>speak</strong>.
+  </div> <div id="slideshow" class="slideshow"></div> <form action="https://formspree.io/f/xjkydlqk" method="POST" class="email-form">
+    <input type="email" name="email" placeholder="Enter your email" required />
+    <button type="submit" class="btn">Join the Movement</button>
+  </form> <div class="launch">
+    Soft Launch: April 20, 2025<br />
+    Hard Launch: May 12, 2025<br />
+    This is only the beginning. Your voice matters.
+  </div> <footer>
+    Manifesto | The Voice | Contact | About | Library (coming soon)<br />
+    Follow us on Facebook, Instagram, TikTok
+  </footer> <script>
+    const messages = [
+      "88 million eligible voters did not vote in the 2024 election",
+      "A new truth is awakening—embrace the quiet strength",
+      "An ocean needs every drop of water to be an Ocean – Your Vote Matters!",
+      "Of course they try to suppress it – Your Voice is that powerful!",
+      "We are the uninvited guests at the table WE built.",
+      "We don't vote Red Or Blue – We vote Human."
+    ];
 
-  <form action="https://formspree.io/f/xjkydlqk" method="POST" class="email-form">
-  <input type="email" name="email" placeholder="Enter your email" required />
-  <button type="submit" class="btn">Join the Movement</button>
-</form>
+    let current = 0;
+    const slideshow = document.getElementById("slideshow");
 
-  <p style="margin-top: 30px;">Launch: April 20 – May 12, 2025</p>
-</body>
+    function showNextMessage() {
+      slideshow.style.opacity = 0;
+      setTimeout(() => {
+        slideshow.textContent = messages[current];
+        slideshow.style.opacity = 1;
+        current = (current + 1) % messages.length;
+      }, 500);
+    }
+
+    showNextMessage();
+    setInterval(showNextMessage, 4000);
+  </script></body>
 </html>
